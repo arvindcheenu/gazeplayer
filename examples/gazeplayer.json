@@ -1,0 +1,24 @@
+{
+  "participants": ["alice", "bob", "carol", "dan"],
+  "participant_colors": {
+    "alice": "#ff6b6b",
+    "bob": "#4ecdc4",
+    "carol": "#ffe66d",
+    "dan": "#95e1d3"
+  },
+  "aoi_presets": [
+    "person_1", "person_2", "person_3", "person_4",
+    "guitar", "drums", "mike",
+    "monitor", "phone"
+  ],
+  "quick_labels": ["alice", "bob", "carol", "dan", "monitor", "phone"],
+  "depth_hierarchy": {
+    "alice": ["alice", "dan", "carol", "bob"],
+    "dan": ["dan", "alice", "carol", "bob"],
+    "carol": ["carol", "bob", "dan", "alice"],
+    "bob": ["bob", "carol", "dan", "alice"]
+  },
+  "gaze_aoi_proximity_px": 40,
+  "gaze_sample_ms": 5,
+  "event_types": ["musical_event", "gaze_event", "gaze_transition", "interaction", "annotation"]
+}

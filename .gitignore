@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+*.egg-info/
+build/
+dist/
+.venv/
+.pytest_cache/
+# macOS metadata (and AppleDouble files on exFAT/FAT drives)
+.DS_Store
+._*
+# model weights downloaded by ultralytics
+*.pt

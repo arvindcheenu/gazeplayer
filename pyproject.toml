@@ -1,0 +1,48 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gazeplayer"
+version = "4.1.0"
+description = "Synchronised multi-participant eye-tracking video player with AOI annotation, YOLO/FastSAM assistance and gaze-in-AOI metrics"
+readme = "README.md"
+license = { text = "MIT" }
+authors = [
+    { name = "Arvind Srinivasan" },
+    { name = "Tobias Rau" },
+    { name = "Michael Sedlmair" },
+]
+requires-python = ">=3.9"
+keywords = ["eye-tracking", "gaze", "AOI", "pupil-labs", "video", "annotation"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Visualization",
+    "Environment :: X11 Applications :: Qt",
+]
+dependencies = [
+    "numpy>=1.24",
+    "pandas>=2.0",
+    "opencv-python>=4.8",
+    "PyQt6>=6.4",
+]
+
+[project.optional-dependencies]
+# YOLO tracking, FastSAM segmentation and model training (pulls in PyTorch)
+detect = ["ultralytics>=8.0"]
+# Nicer dark theme; the player falls back to a built-in dark palette without it
+theme = ["pyqtdarktheme>=0.1.7"]
+dev = ["pytest>=7"]
+all = ["gazeplayer[detect,theme]"]
+
+[project.scripts]
+gazeplayer = "gazeplayer.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
